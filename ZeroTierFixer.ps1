@@ -15,9 +15,6 @@ if ($ZeroTierOneSvc.Status -ne "Running")
     Start-Sleep -Seconds 5
     Start-Service "ZeroTier One"
     Start-Sleep -Seconds 5
-    Start-Process $ZeroTierOneExe
 }
-else
-{
-    Start-Process $ZeroTierOneExe
-}
+
+Start-Process $ZeroTierOneExe
