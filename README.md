@@ -7,6 +7,7 @@ This is an intermediate fix for the issue on Windows systems where the Zero Tier
 3. Create a scheduled task with the following settings:
   - Run as local Administrator (or similar account with local admin privileges)
     - Running as yourself will cause a powershell window to appear every time the job is run.
+    - `NT AUTHORITY\SYSTEM` works well personally.
   - Run whether the user is logged on or not
   - Run with highest privileges
   - *Trigger*: At startup, repeat every 5 minutes indefinitely
