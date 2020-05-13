@@ -8,6 +8,7 @@ isn't running, kill "ZeroTier One.exe", start the service, restart
 
 $ZeroTierOneSvc = Get-Service "ZeroTier One"
 $ZeroTierOneExe = "C:\Program Files (x86)\ZeroTier\One\ZeroTier One.exe"
+$ZeroTierAlive = Get-Process -Name "ZeroTier One" -ErrorAction SilentlyContinue
 
 if ($ZeroTierOneSvc.Status -ne "Running")
 {
@@ -17,4 +18,9 @@ if ($ZeroTierOneSvc.Status -ne "Running")
     Start-Sleep -Seconds 5
 }
 
-Start-Process $ZeroTierOneExe
+
+
+# If 'ZeroTier One.exe' Process is NOT running
+if($ZeroTierAlive -eq $null){
+    Start-Process $ZeroTierOneExe
+}
